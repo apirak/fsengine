@@ -1,0 +1,34 @@
+$major-color: #CE1D05;
+$safe-color: #4CA614;
+$light-color: #9A9A9A;
+
+$header-height: 90px;
+$fse-font-small: 10px;
+$fse-font-normal: 12px;
+$fse-font-large: 18px;
+$fse-font-extra-large: 20px;
+
+$order-padding-top: 15px;
+
+a {
+  color: $major-color;
+}
+
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 970px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}

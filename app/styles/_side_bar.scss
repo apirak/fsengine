@@ -1,0 +1,43 @@
+.nav-tabs {
+  > li {
+    > a {
+      color: $major-color;
+      border: 0px solid transparent;
+      border-radius: 0px;
+      line-height: 20px;
+      &:hover {
+        color: lighten($major-color, 30);
+        border-color: transparent;
+      }
+    }
+
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: #fff;
+        background-color: $major-color;
+        border: 1px solid $major-color;
+        border-bottom-color: transparent;
+      }
+    }
+  }
+}
+
+.nav-tabs {
+  border-bottom: 1px solid $major-color;
+}
+
+.btn-search {
+  @include button-variant(white, $major-color, white);
+  width: 100%
+}
+
+.sidebar {
+  @extend .col-xs-12;
+  @extend .col-sm-4;
+  margin-bottom: 30px;
+  .tab-content {
+    margin-top: $padding-base-vertical;
+  }
+}

@@ -1,0 +1,97 @@
+
+.search-result {
+  @extend .col-xs-12;
+  @extend .col-sm-8;
+
+  .header{
+    @extend .col-xs-7;
+    margin-bottom: 0px;
+    h4 {
+      color: $light-color;
+    }
+  }
+
+  .summary {
+    @extend .col-xs-5;
+    text-align: right;
+    font-size: $fse-font-normal;
+    margin-top: 10px;
+    color: $light-color;
+    .date {
+      color: $major-color;
+    }
+  }
+
+  .orders {
+    .order {
+      @extend .row;
+      margin-bottom: 20px;
+
+
+      @media screen and (max-width: 750px) {
+        border-bottom: 1px solid #ddd;
+
+        .airline-logo {
+          img {
+            width: 40px;
+          }
+        }
+      }
+
+      .airline-logo {
+        @extend .col-xs-1;
+        @extend .col-sm-2;
+        @extend .col-md-2;
+        margin-top: $order-padding-top;
+      }
+      .go-back-flight {
+        @extend .col-xs-6;
+        @extend .col-sm-4;
+        @extend .col-md-5;
+        .go-flight, .back-flight {
+          float: left;
+          margin-left: 20px;
+          margin-bottom: 10px;
+        }
+      }
+      .flight-id {
+        font-size: $fse-font-small;
+        color: $light-color;
+      }
+      .flight-location {
+        font-size: $fse-font-large;
+      }
+      .flight-time {
+        font-size: $fse-font-normal;
+        color: $light-color;
+      }
+      .price {
+        @extend .col-xs-5;
+        @extend .col-sm-2;
+        @extend .col-md-2;
+        font-size: $fse-font-large;
+        text-align: right;
+        padding-top: $order-padding-top;
+      }
+      .select {
+        @extend .col-xs-5;
+        @extend .col-sm-4;
+        @extend .col-md-3;
+        text-align: right;
+        padding-top: $order-padding-top;
+        a, .barcode {
+          border-radius: 4px;
+          background-color: $safe-color;
+          color: #fff;
+          padding: 5px 10px;
+          display: inline-block;
+          font-size: $fse-font-normal;
+        }
+        .barcode {
+          width:20px;
+          padding: 5px 10px 5px 6px;
+        }
+      }
+    }
+  }
+}

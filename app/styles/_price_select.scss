@@ -1,0 +1,21 @@
+.price-search {
+  margin-top: 30px;
+  .left {
+    float: left;
+  }
+  .right {
+    float: right;
+    text-aligh: right;
+  }
+}
+
+#price-search-slider {
+  width: 90%;
+  margin-left: 5%;
+  .slider-selection {
+    background: $major-color;
+  }
+  .slider-track-low, .slider-track-high {
+    background-color: $light-color;
+  }
+}
