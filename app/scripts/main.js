@@ -3,13 +3,14 @@ $('#myTab a').click(function (e) {
   $(this).tab('show');
 });
 
-
 $('#datetimepickerDeparture').datetimepicker({
 	format: 'DD/MM/YYYY'
 });
+
 $('#datetimepickerReturn').datetimepicker({
 	format: 'DD/MM/YYYY'
 });
+
 $('#scrollPrice').slider({
   id: 'price-search-slider',
   min: 0,
@@ -17,6 +18,7 @@ $('#scrollPrice').slider({
   range: true,
   value: [0,200]
 });
+
 $('#scrollPrice').on('slide', function(slideEvt) {
   $('#priceMin').text(slideEvt.value[0]);
   $('#priceMax').text(slideEvt.value[1]);
@@ -28,12 +30,12 @@ var template = Handlebars.compile(source);
 $('#content-placeholder').html(template(data));
 
 var flightSearch = function (dataLength){
-  var data2 = {orders:[]};
+  var _data = {orders:[]};
 
   for (var i = 0; i < dataLength; i++) {
-      data2.orders[i] = data.orders[i];
+      _data.orders[i] = data.orders[i];
   }
-  $('#content-placeholder').html(template(data2));
+  $('#content-placeholder').html(template(_data));
 }
 
 $('#searchOneWay').on('click', function () {
@@ -47,5 +49,3 @@ $('#searchReturn').on('click', function () {
   flightSearch(3);
   $btn.button('reset');
 })
-
-flightSearch(4);
