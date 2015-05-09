@@ -94,7 +94,30 @@
 
           </div>
         </div>
-        <div class="content">result</div>
+        <div class="content">
+
+          <script id="some-template" type="text/x-handlebars-template">
+            <table>
+              <thead>
+                <th>Username</th>
+                <th>Real Name</th>
+                <th>Email</th>
+              </thead>
+              <tbody>
+                {{#users}}
+                  <tr>
+                    <td>{{username}}</td>
+                    <td>{{firstName}} {{lastName}}</td>
+                    <td>{{email}}</td>
+                  </tr>
+                {{/users}}
+              </tbody>
+            </table>
+          </script>
+
+          <div id="content-placeholder"></div>
+
+        </div>
       </div>
 
       <div class="footer">
@@ -122,6 +145,7 @@
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <script src="bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js"></script>
+    <script src="bower_components/handlebars/handlebars.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
