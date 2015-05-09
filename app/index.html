@@ -21,7 +21,6 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-
     <div class="container">
       <div class="header">
         <h3 class="text-muted">Flight Search Engine</h3>
@@ -95,26 +94,24 @@
           </div>
         </div>
         <div class="content">
-
+          <h3>Your Results</h3>
+          <div>
+            Depart: 1st Jan 2014<br/>
+            Return: 10th Jan 2014
+          </div>
           <script id="some-template" type="text/x-handlebars-template">
-            <table>
-              <thead>
-                <th>Username</th>
-                <th>Real Name</th>
-                <th>Email</th>
-              </thead>
-              <tbody>
-                {{#users}}
-                  <tr>
-                    <td>{{username}}</td>
-                    <td>{{firstName}} {{lastName}}</td>
-                    <td>{{email}}</td>
-                  </tr>
-                {{/users}}
-              </tbody>
-            </table>
+            <div>
+                {{#orders}}
+                    {{#flights.go}}
+                    <div>{{id}}</div>
+                    {{/flights.go}}
+                    {{#flights.back}}
+                    <div>{{id}}</div>
+                    {{/flights.back}}
+                  {{price}}
+                {{/orders}}
+            </div>
           </script>
-
           <div id="content-placeholder"></div>
 
         </div>

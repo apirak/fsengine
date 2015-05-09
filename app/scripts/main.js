@@ -12,16 +12,55 @@ $(function () {
     });
 });
 
-var data = { users: [
-  {username: "alan", firstName: "Alan", lastName: "Johnson", email: "alan@test.com" },
-  {username: "allison", firstName: "Allison", lastName: "House", email: "allison@test.com" },
-  {username: "ryan", firstName: "Ryan", lastName: "Carson", email: "ryan@test.com" }
-]};
-
-var data2 = { users: [
-  {username: "bank", firstName: "Alan", lastName: "Johnson", email: "alan@test.com" },
-  {username: "allison", firstName: "Allison", lastName: "House", email: "allison@test.com" },
-  {username: "ryan", firstName: "Ryan", lastName: "Carson", email: "ryan@test.com" }
+var data = { orders: [
+  {id:"1", price: 125, flights:{
+  	go:{
+  		id:"AI-202",
+  		from: "PNQ",
+  		to: "DEL",
+  		depart: "10:00 AM",
+  		arive: "12:00 PM"
+  	},
+  	back:{
+  		id:"AI-202",
+  		from: "PNQ",
+  		to: "DEL",
+  		depart: "10:00 AM",
+  		arive: "12:00 PM"
+  	}
+  }},
+  {id:"2", price: 125, flights:{
+  	go:{
+  		id:"AI-202",
+  		from: "PNQ",
+  		to: "DEL",
+  		depart: "10:00 AM",
+  		arive: "12:00 PM"
+  	},
+  	back:{
+  		id:"AI-202",
+  		from: "PNQ",
+  		to: "DEL",
+  		depart: "10:00 AM",
+  		arive: "12:00 PM"
+  	}
+  }},
+  {id:"3", price: 125, flights:{
+  	go:{
+  		id:"AI-202",
+  		from: "PNQ",
+  		to: "DEL",
+  		depart: "10:00 AM",
+  		arive: "12:00 PM"
+  	},
+  	back:{
+  		id:"AI-202",
+  		from: "PNQ",
+  		to: "DEL",
+  		depart: "10:00 AM",
+  		arive: "12:00 PM"
+  	}
+  }}
 ]};
 
 $(function () {
@@ -33,8 +72,8 @@ $(function () {
 
 	// data.users[0].username = "bank"
 
-	data = data2;
+	// data = data2;
 
-	$("#content-placeholder").html(template(data));
+	// $("#content-placeholder").html(template(data));
 
 });
