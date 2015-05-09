@@ -165,7 +165,7 @@
               {{#orders}}
               <div class="order">
                 <div class="airline-logo">
-                  <img src="images/airline/{{airline}}.png"/>
+                  <img src="images/airline/{{airline}}.png" alt="logo of {{airline}}"/>
                 </div>
                 <div class="go-back-flight">
                   <div class="go-flight">
@@ -244,6 +244,7 @@
     <!-- endbuild -->
 
     <!-- build:js({app,.tmp}) scripts/main.js -->
+    <script src="scripts/data.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
 </body>
