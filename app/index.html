@@ -10,6 +10,8 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -21,50 +23,53 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <div class="one-line-background"></div>
+
     <div class="container">
       <div class="header">
-        <h3 class="text-muted">Flight Search Engine</h3>
+        <h1 class="text-muted">Flight Search Engine</h1>
       </div>
 
       <div class="row">
         <div class="sidebar">
           <div role="tabpanel">
 
-            <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
               <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">One way</a></li>
               <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Return</a></li>
             </ul>
 
-            <!-- Tab panes -->
             <div class="tab-content">
               <div role="tabpanel" class="tab-pane active" id="home">
                 <form>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Form</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <label for="inputForm">Form</label>
+                    <input type="email" class="form-control" id="inputForm" placeholder="Ex. London, Suwanapoom">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Destination</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <label for="inputDestination">Destination</label>
+                    <input type="password" class="form-control" id="inputDestination" placeholder="Ex. London, Suwanapoom">
                   </div>
                   <div class="form-group">
-                      <div class='input-group date' id='datetimepicker1'>
-                          <input type='text' class="form-control" />
+                    <label for="inputDepartureDate">Departure Date</label>
+                      <div class='input-group date' id='datetimepickerDeparture'>
+                          <input type='text' id="inputDepartureDate" class="form-control" placeholder="Ex. 12/04/2015"/>
                           <span class="input-group-addon">
                               <span class="glyphicon glyphicon-calendar"></span>
                           </span>
                       </div>
                   </div>
                   <div class="form-group">
-                      <div class='input-group date' id='datetimepicker2'>
-                          <input type='text' class="form-control" />
+                      <label for="inputReturnDate">Return Date</label>
+                      <div class='input-group date' id='datetimepickerReturn'>
+                          <input type='text' id="inputReturnDate" class="form-control" placeholder="Ex. 12/04/2015"/>
                           <span class="input-group-addon">
                               <span class="glyphicon glyphicon-calendar"></span>
                           </span>
                       </div>
                   </div>
                   <div class="form-group">
+                    <label for="inputPassenger">Passenger</label>
                     <select class="form-control">
                       <option>1</option>
                       <option>2</option>
@@ -83,33 +88,123 @@
                       <option>15</option>
                     </select>
                   </div>
-                  <button type="submit" class="btn btn-default">Submit</button>
+                  <button type="submit" class="btn btn-search">Search</button>
                 </form>
               </div>
               <div role="tabpanel" class="tab-pane" id="profile">
-                bank land2
+                <form>
+                  <div class="form-group">
+                    <label for="inputForm">Form</label>
+                    <input type="email" class="form-control" id="inputForm" placeholder="Ex. London, Suwanapoom">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputDestination">Destination</label>
+                    <input type="password" class="form-control" id="inputDestination" placeholder="Ex. London, Suwanapoom">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputDepartureDate">Departure Date</label>
+                      <div class='input-group date' id='datetimepickerDeparture'>
+                          <input type='text' id="inputDepartureDate" class="form-control" placeholder="Ex. 12/04/2015"/>
+                          <span class="input-group-addon">
+                              <span class="glyphicon glyphicon-calendar"></span>
+                          </span>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassenger">Passenger</label>
+                    <select class="form-control">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                      <option>13</option>
+                      <option>14</option>
+                      <option>15</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-search">Search</button>
+                </form>
               </div>
+            </div>
+
+            <div class="price-search">
+              <h4>Refine Flight Search:</h4>
+              <div class="left">
+                &#163;
+                <span id="priceMin">0</span>
+              </div>
+              <div class="right">
+                &#163;
+                <span id="priceMax">200</span>
+              </div>
+              <input id="scrollPrice" type="text" class="price-search" />
             </div>
 
           </div>
         </div>
-        <div class="content">
-          <h3>Your Results</h3>
-          <div>
-            Depart: 1st Jan 2014<br/>
-            Return: 10th Jan 2014
+        <div class="search-result">
+          <div class="row">
+            <div class="header">
+              <h4>Your Results</h4>
+            </div>
+            <div class="summary">
+              Depart: <span class="date">1st Jan 2014</span>,
+              Return: <span class="date">10th Jan 2014</span>
+            </div>
           </div>
-          <script id="some-template" type="text/x-handlebars-template">
-            <div>
-                {{#orders}}
+          <script id="orders-template" type="text/x-handlebars-template">
+            <div class="orders">
+              {{#orders}}
+              <div class="order">
+                <div class="airline-logo">
+                  <img src="images/airline/{{airline}}.png"/>
+                </div>
+                <div class="go-back-flight">
+                  <div class="go-flight">
                     {{#flights.go}}
-                    <div>{{id}}</div>
+                    <div class="flight-id">{{id}}</div>
+                    <div class="flight-location">{{from}} > {{to}}</div>
+                    <div class="flight-time">
+                      <span>depart</span>
+                      {{depart}}
+                    </div>
+                    <div class="flight-time">
+                      <span>arive</span>
+                      {{arive}}
+                    </div>
                     {{/flights.go}}
+                  </div>
+                  <div class="back-flight">
                     {{#flights.back}}
-                    <div>{{id}}</div>
+                    <div class="flight-id">{{id}}</div>
+                    <div class="flight-location">{{from}} > {{to}}</div>
+                    <div class="flight-time">
+                      <span>depart</span>
+                      {{depart}}
+                    </div>
+                    <div class="flight-time">
+                      <span>arive</span>
+                      {{arive}}
+                    </div>
                     {{/flights.back}}
-                  {{price}}
-                {{/orders}}
+                  </div>
+                </div>
+                <div class="price">
+                  &#163; {{price}}
+                </div>
+                <div class="select">
+                  <a href="#">Select this flight</a><span class="barcode"><img src="images/barcode.png"/></span>
+                </div>
+              </div>
+              {{/orders}}
             </div>
           </script>
           <div id="content-placeholder"></div>
@@ -117,8 +212,6 @@
         </div>
       </div>
 
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
       </div>
 
     </div>
@@ -126,6 +219,7 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
@@ -143,6 +237,9 @@
     <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <script src="bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js"></script>
     <script src="bower_components/handlebars/handlebars.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/jquery-bridget/jquery.bridget.js"></script>
+    <script src="bower_components/seiyria-bootstrap-slider/js/bootstrap-slider.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
