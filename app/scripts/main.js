@@ -29,7 +29,7 @@ var template = Handlebars.compile(source);
 
 $('#content-placeholder').html(template(data));
 
-var flightSearch = function (dataLength){
+var flightSearch = function(dataLength){
   var _data = {orders:[]};
 
   for (var i = 0; i < dataLength; i++) {
@@ -42,7 +42,7 @@ $('#searchOneWay').on('click', function () {
   var $btn = $(this).button('loading');
   flightSearch(2);
   $btn.button('reset');
-})
+});
 
 $('#searchReturn').on('click', function () {
   var $btn = $(this).button('loading');
